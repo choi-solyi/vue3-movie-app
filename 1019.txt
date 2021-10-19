@@ -6,14 +6,13 @@ npm i vue-router@4
 
 bootStrap
 npm i bootstrap@next
-
+https://getbootstrap.com/
 // Required
 @import "../node_modules/bootstrap/scss/functions";
 
 // Default variable overrides
 $body-bg: #000;
 $body-color: #111;
-
 // Required
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
