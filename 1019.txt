@@ -1,15 +1,17 @@
 
+
+@@@Vue Router
 구글 : vue-router next
 https://next.router.vuejs.org/
 npm i vue-router@4
 ----commit
 
-bootStrap
+@@@ bootStrap
 npm i bootstrap@next
 https://getbootstrap.com/
 // Required
-@import "../node_modules/bootstrap/scss/functions";
 
+@import "../node_modules/bootstrap/scss/functions";
 // Default variable overrides
 $body-bg: #000;
 $body-color: #111;
@@ -20,3 +22,9 @@ $body-color: #111;
 
 $primary : #a18cd1;
 //#FDC000
+
+
+@@@ Google fonts
+Google Fonts
+https://fonts.google.com/
+
