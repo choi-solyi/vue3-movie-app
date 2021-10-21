@@ -28,3 +28,35 @@ $primary : #a18cd1;
 Google Fonts
 https://fonts.google.com/
 
+<<<<<<< HEAD
+=======
+@@@ axios
+npm i axios
+
+@@@ Vuex == store (중앙 저장소)
+부모/자식간에서는 props 혹은 emit 을 이용해 데이터 통신이 가능,
+상위/하위 컴포넌트들은 provide +  inject를 이용해 통신가능
+
+형제 컴포넌트들끼리 데이터를 주고 받기 어렵기 때문에 Vuex를 사용해서 해결
+
+about, movie 등등 내용을 store에 저장할것임
+about이랑 movie랑 모듈을 분리해서 만들예정임!
+
+중앙집중식 상태관리 패턴  
+ 중앙집중식 상태관리 패턴  라이브러리  => Vuex
+
+ npm i vuex@next
+ 
+ //3버전 영어
+ https://next.vuex.vuejs.org/   
+
+//2버전 한글 코드는 보지말고 개념만 이해
+ https://vuex.vuejs.org/      
+
+ @@@lodash
+ 중복 제거
+ npm i lodash
+
+ @@@
+promise mdn 
+>>>>>>> e009a43edd37ea0bf38594143655f100c5c0724d
