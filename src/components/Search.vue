@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   data(){
@@ -48,7 +47,7 @@ export default {
         },
         {
           name: 'number',
-          items:[10,20,30]
+          items:[10, 20, 30]
         },
         {
           name: 'year',
@@ -66,9 +65,17 @@ export default {
   },
   methods:{
     async apply(){    //async =비동기
-      const OMDB_API_KEY = 'ab697f6f'//'7035c60c'
-      const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${this.title}&type=${this.type}&y=${this.year}&page=1`)
-      console.log(res)
+      // const OMDB_API_KEY = 'ab697f6f'//'7035c60c'
+      // const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${this.title}&type=${this.type}&y=${this.year}&page=1`)
+      // console.log(res)
+
+      // dispatch 를 이용해서 searchMovies를 불러오고, 오브젝트 인수를 넘겨줌
+      this.$store.dispatch('movie/searchMovies', {
+        title: this.title,
+        type: this.type,
+        number: this.number,
+        year: this.year
+      })
     }
   }
 }
