@@ -50,3 +50,10 @@ about이랑 movie랑 모듈을 분리해서 만들예정임!
 
 //2버전 한글 코드는 보지말고 개념만 이해
  https://vuex.vuejs.org/      
+
+ @@@lodash
+ 중복 제거
+ npm i lodash
+
+ @@@
+promise mdn 

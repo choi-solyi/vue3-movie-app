@@ -1,4 +1,5 @@
 import axios from 'axios'
+import _uniqBy from 'lodash/uniqBy'
 
 export default {
   //module 화 명시
@@ -39,7 +40,7 @@ export default {
 
       const { Search, totalResults } = res.data
       commit('updateState', {
-        movies: Search 
+        movies: _uniqBy(Search, 'imdbID') 
       })
       console.log(totalResults) //frozen 268개
       console.log(typeof totalResults)  //string
@@ -50,12 +51,13 @@ export default {
       //추가 요청 전송
       if( pageLength > 1){
         for(let page = 2; page <= pageLength; page++){
-          console.log(page ,"page")
           if( page > (number / 10) ) break
           const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`)
           const { Search } = res.data
           commit('updateState', {
-            movies: [...state.movies, ...Search]
+            movies: [
+              ...state.movies, ..._uniqBy(Search, 'imdbID')
+            ]
           })
         }
       }
