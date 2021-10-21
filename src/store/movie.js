@@ -6,9 +6,11 @@ export default {
   namespaced: true,
 
   //data == 상태
-  stats: ()=>{
-    []
-  },
+  state: () => ({
+    movies: [],
+    message: 'Search for the movie title!',
+    loading: false
+  }),
 
   //computed 계산된 데이터들
   // getters: {
@@ -33,6 +35,13 @@ export default {
   //methods - 변경 허용 X  비동기로 처리가 되도록 되어있음
   actions: {
     async searchMovies({ state, commit }, payload){
+      if(state.loading) return
+
+      //검색이 시작되면 메세지를 초기화
+      commit('updateState',{
+        message: '',
+        loading: true
+      })
       try {
         const res = await _fetcheMove({
           ...payload,
@@ -68,6 +77,10 @@ export default {
         commit('updateState', {
           movies: [],
           message: err
+        })
+      } finally {
+        commit('updateState',{
+          loading: false
         })
       }
     }
