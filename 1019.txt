@@ -1,0 +1,35 @@
+
+
+@@@Vue Router
+구글 : vue-router next
+https://next.router.vuejs.org/
+npm i vue-router@4
+----commit
+
+@@@ bootStrap
+npm i bootstrap@next
+https://getbootstrap.com/
+// Required
+
+@import "../node_modules/bootstrap/scss/functions";
+// Default variable overrides
+$body-bg: #000;
+$body-color: #111;
+// Required
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+$primary : #a18cd1;
+//#FDC000
+
+
+@@@ Google fonts
+Google Fonts
+https://fonts.google.com/
+
+@@@ axios
+npm i axios
+
+@@@ Vuex
+ 형제 컴포넌트들끼리 데이터를 주고 받기 어렵기 때문에 Vuex를 사용해서 해결
