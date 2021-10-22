@@ -28,8 +28,6 @@ $primary : #a18cd1;
 Google Fonts
 https://fonts.google.com/
 
-<<<<<<< HEAD
-=======
 @@@ axios
 npm i axios
 
@@ -59,4 +57,11 @@ about이랑 movie랑 모듈을 분리해서 만들예정임!
 
  @@@
 promise mdn 
->>>>>>> e009a43edd37ea0bf38594143655f100c5c0724d
+
+@@@ CSS 특수문자 삽입
+https://stackoverflow.com/questions/190396/adding-html-entities-using-css-content
+http://www.evotech.net/blog/2007/04/named-html-entities-in-numeric-order/
+
+
+@@ 구글 : 실시간 이미지 리사이징
+https://heropy.blog/2019/07/21/resizing-images-cloudfrount-lambda/

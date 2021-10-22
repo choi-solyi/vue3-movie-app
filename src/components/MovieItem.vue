@@ -1,7 +1,12 @@
 <template>
-  <div 
+  <RouterLink 
+    :to="`/movie/${movie.imdbID}`"
     :style="{ backgroundImage: `url(${movie.Poster}`} "
     class="movie">
+    <Loader
+      v-if="imageLoading" 
+      :size="1.5"
+      absolute />
     <div class="info">
       <div class="year">
         {{ movie.Year }}
@@ -11,16 +16,39 @@
       </div>
     </div>
     <!-- {{ movie.Title }} -->
-  </div>
+  </RouterLink>
 </template>
 
 <script>
+import Loader from '~/components/Loader'
 export default {
+  components: {
+    Loader
+  },
   props: {
     movie: {
       type: Object,
       // default: function() { return {} }
       default: () =>({})
+    }
+  },
+  data(){
+    return{
+      imageLoading: true
+    }
+  },
+  mounted() {
+    this.init()
+  },
+  methods: {
+    async init() {
+      const poster = this.movie.Poster
+      if(!poster || poster === 'N/A') {
+        this.imageLoading = false
+      }else{
+        await this.$loadImage(poster)      
+        this.imageLoading = false
+      }  
     }
   }
 }
@@ -39,8 +67,6 @@ export default {
   background-size: cover;
   overflow: hidden;
   position: relative;
-
-
   &:hover::after{
     //가상요소 추가
     content: "";
@@ -50,9 +76,7 @@ export default {
     left: 0;
     right: 0;
     border: 6px solid $primary;
-
   }
-
   .info {
     color: white;
     background-color:rgba($black, .3);
@@ -76,5 +100,4 @@ export default {
     }
   }
 }
-
 </style>

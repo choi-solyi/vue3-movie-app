@@ -16,11 +16,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 footer {
   padding: 70px 0;
   text-align: center;
-  opacity: .3;
+  opacity: .5;
   .logo {
     display: block;
     margin-bottom: 4px;

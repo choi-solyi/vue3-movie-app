@@ -93,8 +93,10 @@ export default {
         theMovie: {}, //화면전환했을때 잠깐이라도 노출되는것을 방지
         loading: true
       })
+
       try{
         const res = await _fetcheMove(payload)
+        console.log(res.data);
         commit('updateState',{
           theMovie: res.data
         })
