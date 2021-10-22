@@ -19,6 +19,7 @@
 
 
 <script>
+import { mapState } from 'vuex'
 import Loader from '~/components/Loader'
 export default {
   components: {
@@ -30,24 +31,32 @@ export default {
     }
   },
   computed: {
-    image(){
-      return this.$store.state.about.image
-    },
-    name(){
-      return this.$store.state.about.name
-    },
-    mobile(){
-      return this.$store.state.about.mobile
-    },
-    email(){
-      return this.$store.state.about.email
-    },
-    blog(){
-      return this.$store.state.about.blog
-    },
-    github(){
-      return this.$store.state.about.github
-    },
+    ...mapState('about', [
+      'image',
+      'name',
+      'mobile',
+      'email',
+      'blog',
+      'github'
+    ]) 
+    // image(){
+    //   return this.$store.state.about.image
+    // },
+    // name(){
+    //   return this.$store.state.about.name
+    // },
+    // mobile(){
+    //   return this.$store.state.about.mobile
+    // },
+    // email(){
+    //   return this.$store.state.about.email
+    // },
+    // blog(){
+    //   return this.$store.state.about.blog
+    // },
+    // github(){
+    //   return this.$store.state.about.github
+    // },
     
   },
   mounted() {
@@ -62,7 +71,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "~/scss/main";
 .about {
   text-align: center;
   font-family: "Oswald", sans-serif;

@@ -65,3 +65,47 @@ http://www.evotech.net/blog/2007/04/named-html-entities-in-numeric-order/
 
 @@ 구글 : 실시간 이미지 리사이징
 https://heropy.blog/2019/07/21/resizing-images-cloudfrount-lambda/
+
+@@@sass-loader github additionalData
+https://github.com/webpack-contrib/sass-loader
+webpack.config.js 에서  Rules 에 추가해준다.
+
+@@@ Vuex Helpers
+-- 반복되는 비슷한 코드들 상태관리 라이브러리로 관리
+import { mapState } from 'vuex
+import { mapActions } from 'vuex' 
+mapState 는 활용도가 높지만
+mapActions는 직접 스토어를 표시 해주는게 좋을듯
+
+
+@@@ store ?  vuex?
+
+state = data
+getters = computed / data를 활용만.
+mutations = methods / data를 변경 할 수 있음
+actions = methods / 비동기 method / 
+        state, getters, mutations를 context 로 가져와서 모두 활용 가능
+  context.data, 
+  context.getters, 
+  context.commit, (mutaition)
+  context.dispatch (actions)
+
+  $store.state.모듈.상태
+  $store.getter['모듈/게터']      ['about/count']
+  $store.commit('모듈/변이')
+  $store.dispatch('모듈/액션')
+  
+  @Helpers
+  mapState('모듈',[     //computed 에 명시
+    '',''
+  ])
+  mapGetter('모듈',[    //computed 에 명시
+    '','' 
+  ])
+  mapMutations('모듈',[   //methods 에 명시
+    '',''
+  ])
+  mapActions('모듈',[     //methods 에 명시
+    '',''
+  ])
+  
