@@ -109,3 +109,13 @@ actions = methods / 비동기 method /
     '',''
   ])
   
+
+  @@@ Vue Router
+  RouterView - 영역을 컨트롤
+  RouterLink - a태그 대신 사용, 좀더 쉽고 편리하게 사용 가능
+
+  $route - 속성 /  페이지 정보를 가지고 있는 객체 fullpath, params, ..
+  $router - 메서드 / 페이지를 조작하기 위한 객체 push(페이지 이동)
+
+
+  
