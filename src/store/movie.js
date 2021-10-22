@@ -9,7 +9,8 @@ export default {
   state: () => ({
     movies: [],
     message: 'Search for the movie title!',
-    loading: false
+    loading: false,
+    theMovie: {}
   }),
 
   //computed 계산된 데이터들
@@ -83,14 +84,39 @@ export default {
           loading: false
         })
       }
+    },
+    async searchMovieWithID( {state, commit}, payload){
+      if(state.loading) return
+
+      //검색이 시작되면 메세지를 초기화
+      commit('updateState',{
+        theMovie: {}, //화면전환했을때 잠깐이라도 노출되는것을 방지
+        loading: true
+      })
+      try{
+        const res = await _fetcheMove(payload)
+        commit('updateState',{
+          theMovie: res.data
+        })
+      } catch (err) {
+        commit('updateState', {
+          theMovie: {}
+        })
+      } finally {
+        commit('updateState',{
+          loading: false
+        })
+      }
     }
   }
 }
 
 function _fetcheMove(payload){  // 언더바 == 여기서만 쓸꺼임
- const { title, type, year, page } = payload
+ const { title, type, year, page, id } = payload
  const OMDB_API_KEY = 'ab697f6f'
- const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
+ const url = id 
+    ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` 
+    : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
 //  const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}`
 
  return new Promise((resolve, reject) => { 
