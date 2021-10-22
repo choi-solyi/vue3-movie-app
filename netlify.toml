@@ -1,2 +1,12 @@
 [build]
-  functions = "functions"
+  command = "npm run build"
+  functions = "functions" #서버리스 함수가 작성된 디렉토리 지정
+  publish = "dist"  #프로젝트의 결과 디렉토리
+
+[dev]
+  framework = "#custom" 
+  command = "npm run dev"
+  targetPort = 8081
+  port = 8888
+  publish = "dist"
+  autoLaunch = true  # 서버가 준비되면 자동으로 브라우저를 오픈할것인지
