@@ -77,10 +77,10 @@ export default {
             })
           }
         }
-      } catch (err) {
+      } catch ({ message }) {
         commit('updateState', {
           movies: [],
-          message: err
+          message
         })
       } finally {
         commit('updateState',{
@@ -116,27 +116,6 @@ export default {
   }
 }
 
-function _fetcheMove(payload){  // 언더바 == 여기서만 쓸꺼임
- const { title, type, year, page, id } = payload
- const OMDB_API_KEY = 'ab697f6f'
- const url = id 
-    ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` 
-    : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
-//  const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}`
-
- return new Promise((resolve, reject) => { 
-   axios.get(url)
-    .then(res => {
-      // omdb의 경우 에러가 발생해도 200 코드를 반환하는 경우가 있으므로
-      // 따로 예외처리를 해주어야 한다
-      if(res.data.Error){       
-        reject(res.data.Error)
-        return
-      }
-      resolve(res)
-    })
-    .catch(err => {
-      reject(err.message)
-    })
- })
+async function _fetcheMove(payload){  // 언더바 == 여기서만 쓸꺼임
+  return await axios.post('/.netlify/functions/movie', payload)
 }
